@@ -251,28 +251,33 @@
 	function myFunction() {
 	  var popup = document.getElementById("myPopup");
 	  popup.classList.toggle("show");
-	  ga('send', {
-		  hitType: 'event',
-		  eventCategory: 'ideaPiaciuta',
-		  eventAction: 'clickBottoneTestoGiallo',
+	  gtag('event', 'click',{
+		  eventCategory: 'Bottoni',
+		  eventLabel: 'ideaPiaciuta',
 	  });	
 	}
 	function myFunction2() {
 	  var popup2 = document.getElementById("myPopup2");
 	  popup2.classList.toggle("show");
-	  ga('send', 'event', 'Bottoni', 'clickDownloadApp');
+	  gtag('event', 'click', {
+		eventCategory: 'Bottoni',
+		eventLabel: 'clickDownloadApp',
+	  });
 	}
 	function handleOutboundLinkClicks() {
-	  ga('send', 'event', {
+	  gtag('event', 'click', {
 		eventCategory: 'Outbound Link',
-		eventAction: 'click',
 		eventLabel: 'Gamindo click',
 		transport: 'beacon'
 		});
 	}
 	
 	function nuovoGioco(){
-		ga('send', 'event', 'Gioco', 'Restart');	
+		gtag('event', 'click', {
+		  'event_category': 'Gioco',
+		  'event_label': 'Restart',
+		});
+	
 	}
 	</script>
 </body>
