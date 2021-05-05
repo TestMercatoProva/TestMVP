@@ -162,7 +162,7 @@
 
     <div class="above-game">
       <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
+      <a class="restart-button" onclick="nuovoGioco()">New Game</a>
     </div>
 
     <div class="game-container">
@@ -231,7 +231,7 @@
 		</div>
 		che ci invierà un feedback.
 		</br></br>
-		Se vuoi puoi scaricare la app da <a href="https://gamindo.com/"> Gamindo</a> molto simile, almeno per adesso ;)
+		Se vuoi puoi scaricare la app da <a href="https://gamindo.com/" onclick="handleOutboundLinkClicks()"> Gamindo</a> molto simile, almeno per adesso ;)
 	</p>
   </div>
 
@@ -251,10 +251,28 @@
 	function myFunction() {
 	  var popup = document.getElementById("myPopup");
 	  popup.classList.toggle("show");
+	  ga('send', {
+		  hitType: 'event',
+		  eventCategory: 'ideaPiaciuta',
+		  eventAction: 'clickBottoneTestoGiallo',
+	  });	
 	}
 	function myFunction2() {
 	  var popup2 = document.getElementById("myPopup2");
 	  popup2.classList.toggle("show");
+	  ga('send', 'event', 'Bottoni', 'clickDownloadApp');
+	}
+	function handleOutboundLinkClicks() {
+	  ga('send', 'event', {
+		eventCategory: 'Outbound Link',
+		eventAction: 'click',
+		eventLabel: 'Gamindo click',
+		transport: 'beacon'
+		});
+	}
+	
+	function nuovoGioco(){
+		ga('send', 'event', 'Gioco', 'Restart');	
 	}
 	</script>
 </body>
